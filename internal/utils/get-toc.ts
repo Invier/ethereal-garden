@@ -1,19 +1,18 @@
+'use server';
+
 import { TableOfContents } from 'fumadocs-core/server';
-import fs from 'node:fs/promises';
+import { readFile } from 'fs/promises';
+import { sanitizeUrl } from './common';
 
 const getFileContents = async (filePath: string): Promise<string> => {
   try {
-    const fileBuffer = await fs.readFile(filePath);
+    const fileBuffer = await readFile(filePath);
     return fileBuffer.toString('utf8');
   } catch (error) {
     console.error(error);
   }
 
   return '';
-}
-
-export const sanitizeUrl = (url: string) => {
-  return url.replace(/\s+/g, '-').toLowerCase();
 }
 
 export const getCustomContentToc = async (toc: TableOfContents, filePath: string) : Promise<TableOfContents> => {
