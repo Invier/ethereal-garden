@@ -1,3 +1,4 @@
+'use server';
 
 import dynamic from 'next/dynamic';
 import {
@@ -5,14 +6,15 @@ import {
   TabsList,
   TabsTrigger,
   TabsContent,
+  Skeleton,
 } from 'ethereal-ui';
 
-import { sanitizeUrl } from '@/internal/utils/get-toc';
+import { sanitizeUrl } from '@/internal/utils/common';
 import { CopyToClipboard } from '../copy-to-clipboard';
 import { getFileContent } from '@/internal/utils/file-parser';
 
 const CodeBlock = dynamic(() => import('../codeblock'), {
-  ssr: false,
+  loading: () => <Skeleton className='w-full h-[480px]' />,
 });
 
 export const CodePreview = async ({
@@ -31,23 +33,27 @@ export const CodePreview = async ({
   ) {
     let Component = null;
     let fileContents = '';
-
+    
     try {
       Component = dynamic(() => import(`../../../content/docs${file}`), {
-        ssr: false,
-      });
-
-      fileContents = await getFileContent(`/content/docs${file}.tsx`);
+        loading: () => <Skeleton className='w-full h-[480px]' />,
+      });      
     } catch (error) {
-      console.error(error);
+      console.error(`Error loading component: ${file}`, error);
     }
 
+    try {
+      fileContents = await getFileContent(`/content/docs${file}.tsx`);
+    } catch (error) {
+      console.error(`Error loading file contents: ${file}`, error);
+    }
+    
     if (!Component) {
       return children;
     }
 
     return (
-      <div className='not-prose w-full h-fit max-h-[480px] overflow-y-auto overflow-x-auto md:pl-4 relative'>
+      <div className='not-prose w-full md:pl-4 relative'>
         <Tabs defaultValue='preview'>
           <div className='flex flex-col gap-2'>
             <div className='flex flex-row justify-between items-center flex-wrap'>
@@ -67,21 +73,21 @@ export const CodePreview = async ({
                 <CopyToClipboard text={fileContents} />
               </div>
             </div>
+          </div>          
+          <div className='border rounded-lg my-4'>
+            <TabsContent value='preview' className='!mt-0 p-4 relative'>
+              <Component />
+            </TabsContent>
+            <TabsContent value='code' className='!mt-0 h-fit max-h-[320px] overflow-y-auto overflow-x-auto p-4'>
+              <CodeBlock code={fileContents} lang={internalLang} />
+            </TabsContent>
             {
               description ? (
-                <div className='text-sm text-fd-muted-foreground'>
+                <div className='text-sm text-fd-muted-foreground border border-t p-4'>
                   {description}
                 </div>
               ) : null
             }
-          </div>          
-          <div className='border rounded-lg p-4 my-4'>
-            <TabsContent value='preview' className='!mt-0'>
-              <Component />
-            </TabsContent>
-            <TabsContent value='code' className='!mt-0'>
-              <CodeBlock code={fileContents} lang={internalLang} />
-            </TabsContent>
           </div>
         </Tabs>
       </div>

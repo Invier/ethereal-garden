@@ -7,8 +7,10 @@ import { transformerRemoveNotationEscape } from '@shikijs/transformers';
 export default async function CodeBlock(props: any) {
   const {
     code,
+    getText,
     lang = 'tsx',
   } = props ?? {};
+  
   const out = await codeToHast(code, {
     lang,
     themes: {
