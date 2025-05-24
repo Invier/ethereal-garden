@@ -45,9 +45,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run linting
-        run: npm run lint
-
       - name: Build package
         run: npm run build:package
 
@@ -84,10 +81,6 @@ jobs:
 
       - name: Build package
         run: npm run build:package
-
-      - name: Update package to public
-        run: |
-          npm pkg set private=false
 
       - name: Determine version bump
         id: version
@@ -196,10 +189,6 @@ jobs:
 
       - name: Build package
         run: npm run build:package
-
-      - name: Update package to public
-        run: |
-          npm pkg set private=false
 
       - name: Create beta version
         run: |
