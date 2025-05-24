@@ -1,19 +1,25 @@
-import Link from 'next/link';
+import { ComponentShowcase } from '@/internal/components/component-showcase';
+import { CallToAction } from '@/internal/components/cta';
+import { Hero } from '@/internal/components/hero';
+import { Features } from '@/internal/components/features';
+import { Footer } from '@/internal/components/footer';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Ethereal Garden',
+  description: 'A React component library with cyberpunk aesthetics',
+};
 
 export default function HomePage() {
   return (
-    <main className="flex h-screen flex-col justify-center text-center">
-      <h1 className="mb-4 text-2xl font-bold">Hello World</h1>
-      <p className="text-fd-muted-foreground">
-        You can open{' '}
-        <Link
-          href="/docs"
-          className="text-fd-foreground font-semibold underline"
-        >
-          /docs
-        </Link>{' '}
-        and see the documentation.
-      </p>
-    </main>
+    <div className="min-h-screen flex flex-col">
+      <main className="flex-grow main-container">
+        <Hero />
+        <Features />
+        <ComponentShowcase />
+        <CallToAction />
+      </main>
+      <Footer />
+    </div>
   );
 }
