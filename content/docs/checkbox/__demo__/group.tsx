@@ -1,7 +1,8 @@
 'use client'
 
-import { Checkbox } from 'ethereal-ui';
 import { useState } from 'react';
+
+import { Checkbox } from 'ethereal-ui';
 
 export default () => {
   const [selected, setSelected] = useState<string[]>([]);

@@ -1,8 +1,10 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import { AlertCircle } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
+
 import {
   Form,
   FormControl,
@@ -22,7 +24,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from 'ethereal-ui';
-import { AlertCircle } from 'lucide-react';
 
 // Define form schema with complex validation rules
 const formSchema = z.object({

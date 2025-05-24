@@ -1,12 +1,13 @@
 'use client'
 
+import { useState } from 'react';
+
 import { 
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
   Button,
 } from 'ethereal-ui';
-import { useState } from 'react';
 
 export default () => {
   const [isOpen, setIsOpen] = useState(false);

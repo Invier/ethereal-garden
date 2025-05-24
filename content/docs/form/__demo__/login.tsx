@@ -1,8 +1,10 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Lock, Mail } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
+
 import {
   Form,
   FormControl,
@@ -20,7 +22,6 @@ import {
   CardContent,
   CardFooter,
 } from 'ethereal-ui';
-import { Lock, Mail } from 'lucide-react';
 
 // Define form schema
 const formSchema = z.object({
@@ -30,7 +31,7 @@ const formSchema = z.object({
   password: z.string().min(8, {
     message: 'Password must be at least 8 characters.',
   }),
-  rememberMe: z.boolean().default(false),
+  rememberMe: z.boolean().default(false).optional(),
 });
 
 export default function FormLoginDemo() {

@@ -1,6 +1,18 @@
 'use client'
 
+import {
+  Home,
+  Settings,
+  User,
+  FileText,
+  BarChart,
+  HelpCircle,
+  LogOut,
+  Menu,
+  X,
+} from "lucide-react";
 import React, { useState, useEffect } from "react";
+
 import {
   Sidebar,
   SidebarHeader,
@@ -18,17 +30,6 @@ import {
   SheetClose,
   SidebarProvider,
 } from "ethereal-ui";
-import {
-  Home,
-  Settings,
-  User,
-  FileText,
-  BarChart,
-  HelpCircle,
-  LogOut,
-  Menu,
-  X,
-} from "lucide-react";
 
 export default function SidebarMobileDemo() {
   const [isMobile, setIsMobile] = useState(false);

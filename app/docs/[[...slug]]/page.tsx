@@ -1,4 +1,4 @@
-import { source } from '@/app/source';
+import { createRelativeLink } from 'fumadocs-ui/mdx';
 import {
   DocsPage,
   DocsBody,
@@ -6,9 +6,10 @@ import {
   DocsTitle,
 } from 'fumadocs-ui/page';
 import { notFound } from 'next/navigation';
-import { createRelativeLink } from 'fumadocs-ui/mdx';
-// import { getCustomContentToc } from '@/internal/utils/get-toc';
+
+import { source } from '@/app/source';
 import { getMDXComponents } from '@/internal/components/mdx';
+// import { getCustomContentToc } from '@/internal/utils/get-toc';
 
 export default async function Page({
   params,

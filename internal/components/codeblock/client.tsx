@@ -1,10 +1,10 @@
 'use client';
 
-import { createHighlighter } from 'shiki';
+import { transformerRemoveNotationEscape } from '@shikijs/transformers';
+import { toJsxRuntime } from 'hast-util-to-jsx-runtime';
 import { Fragment, useEffect, useState } from 'react';
 import { jsx, jsxs } from 'react/jsx-runtime';
-import { toJsxRuntime } from 'hast-util-to-jsx-runtime';
-import { transformerRemoveNotationEscape } from '@shikijs/transformers';
+import { createHighlighter } from 'shiki';
 
 export default function CodeBlockClient(props: any) {
   const {

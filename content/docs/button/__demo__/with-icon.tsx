@@ -1,5 +1,6 @@
-import { Button, ButtonIconPosition } from "ethereal-ui";
 import { Check, ArrowRight, Mail, Download, Plus, Settings } from "lucide-react";
+
+import { Button, ButtonIconPosition } from "ethereal-ui";
 
 export default function ButtonWithIconDemo() {
   return (

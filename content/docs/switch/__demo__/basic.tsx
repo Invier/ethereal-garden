@@ -1,7 +1,8 @@
 'use client'
 
-import { Switch } from 'ethereal-ui';
 import { useState } from 'react';
+
+import { Switch } from 'ethereal-ui';
 
 export default () => {
   const [checked, setChecked] = useState(false);

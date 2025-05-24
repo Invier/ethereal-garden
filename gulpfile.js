@@ -1,13 +1,16 @@
-const gulp = require('gulp');
-const webpack = require('webpack');
-const webpackStream = require('webpack-stream');
 const path = require('path');
-const TerserPlugin = require('terser-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const gulp = require('gulp');
 const ts = require('gulp-typescript');
 const merge = require('merge2');
-const pkg = require('./package.json');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const through2 = require('through2');
+const webpack = require('webpack');
+const webpackStream = require('webpack-stream');
+
+const pkg = require('./package.json');
+
 
 function insertUseClient() {
   const header = '"use client"\n';

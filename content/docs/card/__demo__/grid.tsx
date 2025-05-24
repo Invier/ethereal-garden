@@ -1,3 +1,5 @@
+import { ArrowRight, Star, Users, Clock, MessageCircle } from 'lucide-react';
+
 import {
   Card,
   CardContent,
@@ -8,7 +10,6 @@ import {
   Button,
   Badge,
 } from 'ethereal-ui';
-import { ArrowRight, Star, Users, Clock, MessageCircle } from 'lucide-react';
 
 // Sample data for the cards
 const courses = [

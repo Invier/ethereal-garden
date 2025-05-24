@@ -1,6 +1,9 @@
 'use server';
 
 import dynamic from 'next/dynamic';
+
+import { sanitizeUrl } from '@/internal/utils/common';
+import { getFileContent } from '@/internal/utils/file-parser';
 import {
   Tabs,
   TabsList,
@@ -9,9 +12,8 @@ import {
   Skeleton,
 } from 'ethereal-ui';
 
-import { sanitizeUrl } from '@/internal/utils/common';
 import { CopyToClipboard } from '../copy-to-clipboard';
-import { getFileContent } from '@/internal/utils/file-parser';
+
 
 const CodeBlock = dynamic(() => import('../codeblock'), {
   loading: () => <Skeleton className='w-full h-[480px]' />,

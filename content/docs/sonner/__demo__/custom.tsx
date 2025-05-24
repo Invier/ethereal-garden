@@ -1,8 +1,9 @@
 "use client"
 
-import { Button, Avatar, AvatarImage, AvatarFallback } from 'ethereal-ui';
-import { toast } from 'sonner';
 import { ThumbsUp, Bell, ShoppingCart, ArrowRight, X } from 'lucide-react';
+import { toast } from 'sonner';
+
+import { Button, Avatar, AvatarImage, AvatarFallback } from 'ethereal-ui';
 
 export default function SonnerCustomDemo() {
   const showCustomToast = () => {

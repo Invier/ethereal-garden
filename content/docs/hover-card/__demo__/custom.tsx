@@ -1,10 +1,11 @@
+import { Info, Star, Clock, DollarSign, MapPin } from 'lucide-react';
+
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
   Badge,
 } from 'ethereal-ui';
-import { Info, Star, Clock, DollarSign, MapPin } from 'lucide-react';
 
 export default () => (
   <div className="flex justify-center">

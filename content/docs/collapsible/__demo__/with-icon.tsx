@@ -1,12 +1,13 @@
 'use client'
 
+import { ChevronDown, Settings, Users, CreditCard } from 'lucide-react';
+import { useState } from 'react';
+
 import { 
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from 'ethereal-ui';
-import { ChevronDown, Settings, Users, CreditCard } from 'lucide-react';
-import { useState } from 'react';
 
 export default () => {
   const [isOpen, setIsOpen] = useState(false);

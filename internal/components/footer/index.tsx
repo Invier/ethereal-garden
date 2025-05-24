@@ -1,7 +1,9 @@
-import React from 'react';
 import { Github } from 'lucide-react';
-import packageJson from '../../../package.json';
 import Image from 'next/image';
+import React from 'react';
+
+import packageJson from '../../../package.json';
+
 
 export const Footer = () => {
   return (

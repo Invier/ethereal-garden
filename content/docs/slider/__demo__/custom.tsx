@@ -1,8 +1,9 @@
 'use client'
 
-import { Slider } from 'ethereal-ui';
 import { Volume, Volume2, VolumeX } from 'lucide-react';
 import { useState } from 'react';
+
+import { Slider } from 'ethereal-ui';
 
 export default () => {
   const [volume, setVolume] = useState([50]);

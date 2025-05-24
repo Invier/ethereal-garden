@@ -1,5 +1,7 @@
 'use client'
 
+import { useState } from 'react';
+
 import {
   ContextMenu,
   ContextMenuCheckboxItem,
@@ -12,7 +14,6 @@ import {
   ContextMenuShortcut,
   ContextMenuTrigger,
 } from 'ethereal-ui';
-import { useState } from 'react';
 
 export default () => {
   const [checkboxValues, setCheckboxValues] = useState({

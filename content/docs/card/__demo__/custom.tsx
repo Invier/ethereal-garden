@@ -1,3 +1,5 @@
+import { Sparkles, Shield, Zap, Settings } from "lucide-react";
+
 import {
   Card,
   CardContent,
@@ -7,7 +9,6 @@ import {
   CardTitle,
   Button,
 } from "ethereal-ui";
-import { Sparkles, Shield, Zap, Settings } from "lucide-react";
 
 export default function CardCustomDemo() {
   return (

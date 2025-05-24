@@ -1,5 +1,8 @@
 'use client'
 
+import { AlertTriangle, CheckCircle, X } from 'lucide-react';
+import { useState } from 'react';
+
 import {
   Dialog,
   DialogContent,
@@ -10,8 +13,6 @@ import {
   DialogFooter,
   Button,
 } from 'ethereal-ui';
-import { useState } from 'react';
-import { AlertTriangle, CheckCircle, X } from 'lucide-react';
 
 export default () => {
   const [open, setOpen] = useState(false);

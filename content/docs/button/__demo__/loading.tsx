@@ -1,8 +1,9 @@
 'use client'
 
-import { Button } from "ethereal-ui";
-import { useState } from "react";
 import { Save, Download, Send } from "lucide-react";
+import { useState } from "react";
+
+import { Button } from "ethereal-ui";
 
 export default function ButtonLoadingDemo() {
   const [isSaving, setIsSaving] = useState(false);

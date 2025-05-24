@@ -1,8 +1,9 @@
 "use client"
 
-import { Button } from 'ethereal-ui';
-import { toast } from 'sonner';
 import { CheckCircle, AlertCircle, Info, AlertTriangle } from 'lucide-react';
+import { toast } from 'sonner';
+
+import { Button } from 'ethereal-ui';
 
 export default function SonnerTypesDemo() {
   return (

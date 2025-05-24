@@ -1,8 +1,9 @@
 'use client'
 
-import { Input, Label } from 'ethereal-ui';
-import { useState } from 'react';
 import { CheckCircle2, XCircle } from 'lucide-react';
+import { useState } from 'react';
+
+import { Input, Label } from 'ethereal-ui';
 
 export default () => {
   const [email, setEmail] = useState('');

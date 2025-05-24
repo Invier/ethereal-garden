@@ -1,8 +1,8 @@
-import { codeToHast } from 'shiki';
+import { transformerRemoveNotationEscape } from '@shikijs/transformers';
+import { toJsxRuntime } from 'hast-util-to-jsx-runtime';
 import { Fragment } from 'react';
 import { jsx, jsxs } from 'react/jsx-runtime';
-import { toJsxRuntime } from 'hast-util-to-jsx-runtime';
-import { transformerRemoveNotationEscape } from '@shikijs/transformers';
+import { codeToHast } from 'shiki';
 
 export default async function CodeBlock(props: any) {
   const {

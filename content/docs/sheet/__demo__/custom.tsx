@@ -1,6 +1,8 @@
 'use client'
 
+import { ShoppingCart, Trash2, Plus, Minus } from 'lucide-react';
 import { useState } from 'react';
+
 import {
   Sheet,
   SheetContent,
@@ -12,7 +14,6 @@ import {
   Button,
   Separator,
 } from 'ethereal-ui';
-import { ShoppingCart, Trash2, Plus, Minus } from 'lucide-react';
 
 // Sample cart items
 const initialItems = [

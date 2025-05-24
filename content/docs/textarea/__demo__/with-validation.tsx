@@ -1,7 +1,8 @@
 'use client'
 
-import { Textarea } from 'ethereal-ui';
 import { useState } from 'react';
+
+import { Textarea } from 'ethereal-ui';
 
 export default () => {
   const [value, setValue] = useState('');

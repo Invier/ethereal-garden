@@ -1,7 +1,8 @@
 'use client'
 
-import { Calendar } from 'ethereal-ui';
 import { useState } from 'react';
+
+import { Calendar } from 'ethereal-ui';
 
 export default () => {
   const [selectedDates, setSelectedDates] = useState<Date[] | undefined>([

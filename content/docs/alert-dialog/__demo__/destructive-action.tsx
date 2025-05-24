@@ -1,3 +1,5 @@
+import { Trash2 } from 'lucide-react';
+
 import {
   AlertDialog,
   AlertDialogAction,
@@ -10,7 +12,6 @@ import {
   AlertDialogTrigger,
   Button,
 } from 'ethereal-ui';
-import { Trash2 } from 'lucide-react';
 
 export default () => (
   <AlertDialog>

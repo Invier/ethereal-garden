@@ -1,6 +1,18 @@
 'use client'
 
+import {
+  Home,
+  Settings,
+  User,
+  FileText,
+  BarChart,
+  HelpCircle,
+  LogOut,
+  ChevronsLeft,
+  ChevronsRight,
+} from "lucide-react";
 import React, { useState } from "react";
+
 import {
   Sidebar,
   SidebarHeader,
@@ -14,17 +26,6 @@ import {
   TooltipTrigger,
   SidebarProvider,
 } from "ethereal-ui";
-import {
-  Home,
-  Settings,
-  User,
-  FileText,
-  BarChart,
-  HelpCircle,
-  LogOut,
-  ChevronsLeft,
-  ChevronsRight,
-} from "lucide-react";
 
 export default function SidebarCollapsibleDemo() {
   const [collapsed, setCollapsed] = useState(false);

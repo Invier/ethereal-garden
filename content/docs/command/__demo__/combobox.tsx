@@ -1,5 +1,8 @@
 'use client'
 
+import { Check, ChevronsUpDown } from 'lucide-react';
+import { useState } from 'react';
+
 import {
   Command,
   CommandEmpty,
@@ -12,8 +15,6 @@ import {
   PopoverTrigger,
   Button,
 } from 'ethereal-ui';
-import { Check, ChevronsUpDown } from 'lucide-react';
-import { useState } from 'react';
 
 // Sample data for frameworks
 const frameworks = [

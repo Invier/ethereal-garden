@@ -1,3 +1,5 @@
+import { Calculator, Calendar, CreditCard, Settings, Smile, User } from 'lucide-react';
+
 import {
   Command,
   CommandEmpty,
@@ -8,7 +10,6 @@ import {
   CommandSeparator,
   CommandShortcut,
 } from 'ethereal-ui';
-import { Calculator, Calendar, CreditCard, Settings, Smile, User } from 'lucide-react';
 
 export default () => (
   <Command className="rounded-lg border shadow-md">

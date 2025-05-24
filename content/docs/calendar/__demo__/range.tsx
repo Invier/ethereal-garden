@@ -1,9 +1,10 @@
 'use client'
 
-import { Calendar } from 'ethereal-ui';
-import { DateRange } from 'react-day-picker';
-import { useState } from 'react';
 import { addDays } from 'date-fns';
+import { useState } from 'react';
+import { DateRange } from 'react-day-picker';
+
+import { Calendar } from 'ethereal-ui';
 
 export default () => {
   const [dateRange, setDateRange] = useState<DateRange | undefined>({

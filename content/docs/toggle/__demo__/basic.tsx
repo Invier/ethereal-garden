@@ -1,5 +1,6 @@
-import { Toggle } from 'ethereal-ui';
 import { Bold, Italic, Underline } from 'lucide-react';
+
+import { Toggle } from 'ethereal-ui';
 
 export default () => (
   <div className="flex items-center gap-2">

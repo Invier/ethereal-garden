@@ -1,7 +1,8 @@
-import React from 'react';
-import { Button } from '@/components/ui/button';
 import { ArrowRight, Terminal, Download } from 'lucide-react';
 import Link from 'next/link';
+import React from 'react';
+
+import { Button } from '@/components/ui/button';
 
 export const CallToAction = () => {
   return (

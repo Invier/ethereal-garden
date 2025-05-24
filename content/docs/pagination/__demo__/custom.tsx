@@ -1,6 +1,8 @@
 'use client'
 
+import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from 'lucide-react';
 import { useState } from 'react';
+
 import {
   Pagination,
   PaginationContent,
@@ -8,7 +10,6 @@ import {
   PaginationLink,
   Button,
 } from 'ethereal-ui';
-import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from 'lucide-react';
 
 export default function PaginationCustomDemo() {
   const [currentPage, setCurrentPage] = useState(5);

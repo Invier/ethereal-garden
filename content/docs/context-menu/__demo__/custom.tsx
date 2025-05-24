@@ -1,5 +1,8 @@
 'use client'
 
+import { Edit, Copy, Trash, Share, Download, Heart, MoreHorizontal } from 'lucide-react';
+import { useState } from 'react';
+
 import {
   ContextMenu,
   ContextMenuContent,
@@ -10,8 +13,6 @@ import {
   ContextMenuLabel,
   Button,
 } from 'ethereal-ui';
-import { useState } from 'react';
-import { Edit, Copy, Trash, Share, Download, Heart, MoreHorizontal } from 'lucide-react';
 
 export default () => {
   const [liked, setLiked] = useState(false);

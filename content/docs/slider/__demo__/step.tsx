@@ -1,7 +1,8 @@
 'use client'
 
-import { Slider } from 'ethereal-ui';
 import { useState } from 'react';
+
+import { Slider } from 'ethereal-ui';
 
 export default () => {
   const [value, setValue] = useState([25]);

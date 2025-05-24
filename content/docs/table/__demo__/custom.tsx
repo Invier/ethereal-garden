@@ -1,3 +1,5 @@
+import { CheckCircle, XCircle, AlertCircle } from 'lucide-react';
+
 import {
   Table,
   TableBody,
@@ -7,7 +9,6 @@ import {
   TableRow,
   Badge,
 } from 'ethereal-ui';
-import { CheckCircle, XCircle, AlertCircle } from 'lucide-react';
 
 // Sample product data
 const products = [

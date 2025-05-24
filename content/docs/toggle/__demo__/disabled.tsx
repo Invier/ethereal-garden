@@ -1,5 +1,6 @@
-import { Toggle, ToggleGroup, ToggleGroupItem } from 'ethereal-ui';
 import { Bold, Italic, Underline } from 'lucide-react';
+
+import { Toggle, ToggleGroup, ToggleGroupItem } from 'ethereal-ui';
 
 export default () => (
   <div className="flex flex-col gap-6">

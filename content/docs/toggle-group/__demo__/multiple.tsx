@@ -1,8 +1,9 @@
 'use client'
 
-import { ToggleGroup, ToggleGroupItem } from 'ethereal-ui';
 import { Bold, Italic, Underline, Strikethrough } from 'lucide-react';
 import { useState } from 'react';
+
+import { ToggleGroup, ToggleGroupItem } from 'ethereal-ui';
 
 export default function ToggleGroupMultipleDemo() {
   const [formatting, setFormatting] = useState<string[]>(['bold', 'italic']);

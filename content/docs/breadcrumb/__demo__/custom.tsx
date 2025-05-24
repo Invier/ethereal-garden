@@ -1,3 +1,5 @@
+import { ChevronRight, Home, FolderOpen, FileText } from 'lucide-react';
+
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -6,7 +8,6 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from 'ethereal-ui';
-import { ChevronRight, Home, FolderOpen, FileText } from 'lucide-react';
 
 export default () => (
   <div className="space-y-8">

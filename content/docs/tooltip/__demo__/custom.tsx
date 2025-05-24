@@ -1,16 +1,17 @@
 import {
+  Info,
+  AlertCircle,
+  HelpCircle,
+  LifeBuoy,
+} from 'lucide-react';
+
+import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
   Button,
 } from 'ethereal-ui';
-import {
-  Info,
-  AlertCircle,
-  HelpCircle,
-  LifeBuoy,
-} from 'lucide-react';
 
 export default () => (
   <TooltipProvider>

@@ -1,3 +1,5 @@
+import { Home, Laptop, Smartphone, ChevronRight } from 'lucide-react';
+
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -6,7 +8,6 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from 'ethereal-ui';
-import { Home, Laptop, Smartphone, ChevronRight } from 'lucide-react';
 
 export default () => (
   <Breadcrumb>

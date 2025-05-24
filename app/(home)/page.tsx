@@ -1,9 +1,10 @@
+import { Metadata } from 'next';
+
 import { ComponentShowcase } from '@/internal/components/component-showcase';
 import { CallToAction } from '@/internal/components/cta';
-import { Hero } from '@/internal/components/hero';
 import { Features } from '@/internal/components/features';
 import { Footer } from '@/internal/components/footer';
-import { Metadata } from 'next';
+import { Hero } from '@/internal/components/hero';
 
 export const metadata: Metadata = {
   title: 'Ethereal Garden',

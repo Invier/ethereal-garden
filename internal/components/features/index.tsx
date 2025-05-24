@@ -1,5 +1,6 @@
-import React from 'react';
 import { Box, Brush, Code2, Cpu, Gauge, Leaf, Puzzle, Terminal } from 'lucide-react';
+import React from 'react';
+
 import { GlowingEffect } from '../glowing-effect';
 
 const features = [

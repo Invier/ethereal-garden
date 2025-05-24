@@ -1,6 +1,8 @@
 'use client'
 
+import { Palette } from 'lucide-react';
 import { useState } from 'react';
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,7 +13,6 @@ import {
   DropdownMenuTrigger,
   Button,
 } from 'ethereal-ui';
-import { Palette } from 'lucide-react';
 
 export default () => {
   const [position, setPosition] = useState('bottom');

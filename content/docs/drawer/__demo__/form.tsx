@@ -1,3 +1,5 @@
+import { PlusCircle } from 'lucide-react';
+
 import {
   Drawer,
   DrawerTrigger,
@@ -17,7 +19,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from 'ethereal-ui';
-import { PlusCircle } from 'lucide-react';
 
 export default function DrawerFormDemo() {
   return (

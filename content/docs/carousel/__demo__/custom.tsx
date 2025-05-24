@@ -1,6 +1,8 @@
 'use client'
 
+import { Heart, ExternalLink } from 'lucide-react';
 import { useEffect, useState } from 'react';
+
 import {
   Carousel,
   CarouselContent,
@@ -14,7 +16,6 @@ import {
   CardTitle,
   Button,
 } from 'ethereal-ui';
-import { Heart, ExternalLink } from 'lucide-react';
 
 export default function CarouselCustomDemo() {
   const products = [

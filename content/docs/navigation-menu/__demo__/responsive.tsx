@@ -1,5 +1,8 @@
 'use client'
 
+import { Menu, X } from "lucide-react";
+import { useState, useEffect } from "react";
+
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -10,8 +13,6 @@ import {
   NavigationMenuViewport,
   Button,
 } from "ethereal-ui";
-import { Menu, X } from "lucide-react";
-import { useState, useEffect } from "react";
 
 export default function NavigationMenuResponsiveDemo() {
   const [isMobile, setIsMobile] = useState(false);

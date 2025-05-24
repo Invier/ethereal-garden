@@ -1,5 +1,6 @@
-import { Input, Button } from 'ethereal-ui';
 import { Search, Send } from 'lucide-react';
+
+import { Input, Button } from 'ethereal-ui';
 
 export default () => (
   <div className="flex flex-col gap-4">

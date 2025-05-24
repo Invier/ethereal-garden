@@ -1,3 +1,5 @@
+import { CalendarDays, Mail, MapPin } from 'lucide-react';
+
 import {
   HoverCard,
   HoverCardContent,
@@ -7,7 +9,6 @@ import {
   AvatarImage,
   Button,
 } from 'ethereal-ui';
-import { CalendarDays, Mail, MapPin } from 'lucide-react';
 
 export default () => (
   <HoverCard>

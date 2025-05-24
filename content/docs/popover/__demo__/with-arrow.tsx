@@ -1,7 +1,8 @@
 'use client'
 
-import { Button, Popover, PopoverContent, PopoverTrigger } from "ethereal-ui"
 import { Info } from "lucide-react"
+
+import { Button, Popover, PopoverContent, PopoverTrigger } from "ethereal-ui"
 
 export default function PopoverArrowDemo() {
   return (

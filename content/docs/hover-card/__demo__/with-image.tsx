@@ -1,11 +1,12 @@
 'use client'
+import { ExternalLink } from 'lucide-react';
+
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
   Button,
 } from 'ethereal-ui';
-import { ExternalLink } from 'lucide-react';
 
 export default () => (
   <HoverCard>

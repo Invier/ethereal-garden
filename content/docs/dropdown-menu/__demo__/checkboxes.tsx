@@ -1,6 +1,8 @@
 'use client'
 
+import { Sliders } from 'lucide-react';
 import { useState } from 'react';
+
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -10,7 +12,6 @@ import {
   DropdownMenuTrigger,
   Button,
 } from 'ethereal-ui';
-import { Sliders } from 'lucide-react';
 
 type Preference = {
   id: string;

@@ -1,5 +1,8 @@
 'use client'
 
+import { Search } from 'lucide-react';
+import { useState } from 'react';
+
 import {
   Command,
   CommandEmpty,
@@ -12,8 +15,6 @@ import {
   PopoverTrigger,
   Button,
 } from 'ethereal-ui';
-import { Search } from 'lucide-react';
-import { useState } from 'react';
 
 // Sample data
 const actions = [

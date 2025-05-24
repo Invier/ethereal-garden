@@ -1,8 +1,11 @@
-import React from 'react';
-import { Button, ScrollArea } from 'ethereal-ui';
 import { ArrowRight, Code2, Zap } from 'lucide-react';
-import CodeBlock from '../codeblock';
 import Link from 'next/link';
+import React from 'react';
+
+import { Button, ScrollArea } from 'ethereal-ui';
+
+import CodeBlock from '../codeblock';
+
 
 export const Hero = () => {
   return (

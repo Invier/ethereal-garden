@@ -1,3 +1,5 @@
+import { CalendarIcon, ClockIcon, MapPinIcon, UsersIcon } from 'lucide-react';
+
 import {
   Sheet,
   SheetContent,
@@ -16,7 +18,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from 'ethereal-ui';
-import { CalendarIcon, ClockIcon, MapPinIcon, UsersIcon } from 'lucide-react';
 
 export default () => (
   <Sheet>

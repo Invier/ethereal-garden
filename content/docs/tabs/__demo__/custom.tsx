@@ -1,3 +1,5 @@
+import { BarChart3, Users, Settings, LayoutDashboard } from 'lucide-react';
+
 import {
   Tabs,
   TabsContent,
@@ -11,7 +13,6 @@ import {
   CardTitle,
   Button,
 } from 'ethereal-ui';
-import { BarChart3, Users, Settings, LayoutDashboard } from 'lucide-react';
 
 export default () => (
   <Tabs defaultValue="dashboard" className="w-full">

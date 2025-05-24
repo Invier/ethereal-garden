@@ -1,3 +1,5 @@
+import { AlertTriangle, CheckCircle, XCircle } from 'lucide-react';
+
 import {
   AlertDialog,
   AlertDialogAction,
@@ -10,7 +12,6 @@ import {
   AlertDialogTrigger,
   Button,
 } from 'ethereal-ui';
-import { AlertTriangle, CheckCircle, XCircle } from 'lucide-react';
 
 export default () => (
   <AlertDialog>

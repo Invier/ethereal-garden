@@ -1,9 +1,10 @@
+import { Info, AlertCircle, CheckCircle, Bell } from 'lucide-react';
+
 import {
   Alert,
   AlertDescription,
   AlertTitle,
 } from 'ethereal-ui';
-import { Info, AlertCircle, CheckCircle, Bell } from 'lucide-react';
 
 export default () => (
   <div className="space-y-4">

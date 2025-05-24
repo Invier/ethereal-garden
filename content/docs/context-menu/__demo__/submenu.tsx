@@ -1,3 +1,5 @@
+import { Folder, File, FileText, Image, Video, Package, Link } from 'lucide-react';
+
 import {
   ContextMenu,
   ContextMenuContent,
@@ -10,7 +12,6 @@ import {
   ContextMenuTrigger,
   ContextMenuLabel,
 } from 'ethereal-ui';
-import { Folder, File, FileText, Image, Video, Package, Link } from 'lucide-react';
 
 export default () => (
   <ContextMenu>

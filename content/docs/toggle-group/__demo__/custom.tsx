@@ -1,7 +1,8 @@
 'use client'
 
-import { ToggleGroup, ToggleGroupItem } from 'ethereal-ui';
 import { useState } from 'react';
+
+import { ToggleGroup, ToggleGroupItem } from 'ethereal-ui';
 
 export default function ToggleGroupCustomDemo() {
   const [selectedColor, setSelectedColor] = useState('indigo');

@@ -1,13 +1,14 @@
 'use client'
 
+import { REGEXP_ONLY_CHARS } from 'input-otp';
 import { useState } from 'react';
+
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSlot,
   Button,
 } from 'ethereal-ui';
-import { REGEXP_ONLY_CHARS } from 'input-otp';
 
 export default function InputOTPPatternDemo() {
   const [value, setValue] = useState('');

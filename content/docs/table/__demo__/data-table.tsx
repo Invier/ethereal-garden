@@ -1,6 +1,8 @@
 'use client'
 
+import { ChevronDown, ChevronUp, ChevronsUpDown } from 'lucide-react';
 import { useState } from 'react';
+
 import {
   Table,
   TableBody,
@@ -10,7 +12,6 @@ import {
   TableRow,
   Button,
 } from 'ethereal-ui';
-import { ChevronDown, ChevronUp, ChevronsUpDown } from 'lucide-react';
 
 // Sample data
 const initialData = [

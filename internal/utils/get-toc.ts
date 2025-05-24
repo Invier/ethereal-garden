@@ -1,7 +1,9 @@
 'use server';
 
-import { TableOfContents } from 'fumadocs-core/server';
 import { readFile } from 'fs/promises';
+
+import { TableOfContents } from 'fumadocs-core/server';
+
 import { sanitizeUrl } from './common';
 
 const getFileContents = async (filePath: string): Promise<string> => {

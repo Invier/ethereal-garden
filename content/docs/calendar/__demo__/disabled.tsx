@@ -1,8 +1,9 @@
 'use client'
 
-import { Calendar } from 'ethereal-ui';
-import { useState } from 'react';
 import { addDays, isBefore, isAfter, isSameDay } from 'date-fns';
+import { useState } from 'react';
+
+import { Calendar } from 'ethereal-ui';
 
 export default () => {
   const [date, setDate] = useState<Date | undefined>(new Date());

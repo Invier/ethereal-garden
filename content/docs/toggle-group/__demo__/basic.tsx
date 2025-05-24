@@ -1,8 +1,9 @@
 'use client'
 
-import { ToggleGroup, ToggleGroupItem } from 'ethereal-ui';
 import { AlignLeft, AlignCenter, AlignRight, AlignJustify } from 'lucide-react';
 import { useState } from 'react';
+
+import { ToggleGroup, ToggleGroupItem } from 'ethereal-ui';
 
 export default function ToggleGroupBasicDemo() {
   const [alignment, setAlignment] = useState('center');

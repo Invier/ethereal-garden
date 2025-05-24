@@ -1,3 +1,5 @@
+import { ChevronDown, User, Settings, LogOut, HelpCircle } from 'lucide-react';
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,7 +10,6 @@ import {
   DropdownMenuShortcut,
   Button,
 } from 'ethereal-ui';
-import { ChevronDown, User, Settings, LogOut, HelpCircle } from 'lucide-react';
 
 export default () => (
   <DropdownMenu>

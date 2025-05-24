@@ -1,5 +1,6 @@
-import { Button, ButtonIconPosition } from 'ethereal-ui';
 import { Search } from 'lucide-react';
+
+import { Button, ButtonIconPosition } from 'ethereal-ui';
 
 export default () => (
   <div className="flex flex-row gap-4 flex-wrap">

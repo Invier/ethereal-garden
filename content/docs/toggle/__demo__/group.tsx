@@ -1,4 +1,3 @@
-import { ToggleGroup, ToggleGroupItem } from 'ethereal-ui';
 import { 
   AlignLeft, 
   AlignCenter, 
@@ -12,6 +11,8 @@ import {
   ListOrdered,
   ListTodo,
 } from 'lucide-react';
+
+import { ToggleGroup, ToggleGroupItem } from 'ethereal-ui';
 
 export default () => (
   <div className="flex flex-col gap-8">

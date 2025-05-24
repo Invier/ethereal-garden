@@ -1,7 +1,8 @@
 "use client"
 
-import { Button } from 'ethereal-ui';
 import { toast } from 'sonner';
+
+import { Button } from 'ethereal-ui';
 
 export default function SonnerPromiseDemo() {
   // Simulated API calls

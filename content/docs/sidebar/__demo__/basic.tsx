@@ -1,12 +1,3 @@
-import React from "react";
-import {
-  Sidebar,
-  SidebarHeader,
-  SidebarMenu,
-  SidebarMenuItem,
-  SidebarFooter,
-  SidebarProvider,
-} from "ethereal-ui";
 import {
   Home,
   Settings,
@@ -16,6 +7,16 @@ import {
   HelpCircle,
   LogOut,
 } from "lucide-react";
+import React from "react";
+
+import {
+  Sidebar,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuItem,
+  SidebarFooter,
+  SidebarProvider,
+} from "ethereal-ui";
 
 export default function SidebarBasicDemo() {
   return (

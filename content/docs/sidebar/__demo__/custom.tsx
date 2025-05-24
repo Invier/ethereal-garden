@@ -1,6 +1,22 @@
 'use client'
 
+import {
+  Home,
+  Settings,
+  FileText,
+  Users,
+  Bell,
+  Mail,
+  LayoutDashboard,
+  Calendar,
+  HelpCircle,
+  LogOut,
+  ChevronDown,
+  Inbox,
+  MoreHorizontal,
+} from "lucide-react";
 import React, { useState } from "react";
+
 import {
   Sidebar,
   SidebarHeader,
@@ -20,21 +36,6 @@ import {
   DropdownMenuItem,
   SidebarProvider,
 } from "ethereal-ui";
-import {
-  Home,
-  Settings,
-  FileText,
-  Users,
-  Bell,
-  Mail,
-  LayoutDashboard,
-  Calendar,
-  HelpCircle,
-  LogOut,
-  ChevronDown,
-  Inbox,
-  MoreHorizontal,
-} from "lucide-react";
 
 export default function SidebarCustomDemo() {
   const [activeItem, setActiveItem] = useState("dashboard");

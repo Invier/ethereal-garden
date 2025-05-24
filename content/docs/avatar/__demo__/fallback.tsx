@@ -1,9 +1,10 @@
+import { User } from 'lucide-react';
+
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
 } from 'ethereal-ui';
-import { User } from 'lucide-react';
 
 export default () => (
   <div className="flex items-center gap-4">

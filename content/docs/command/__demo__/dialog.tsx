@@ -1,5 +1,8 @@
 'use client'
 
+import { Calculator, Calendar, CreditCard, Settings, Smile, User, Search } from 'lucide-react';
+import { useState, useEffect } from 'react';
+
 import {
   CommandDialog,
   CommandEmpty,
@@ -11,8 +14,6 @@ import {
   CommandShortcut,
   Button,
 } from 'ethereal-ui';
-import { Calculator, Calendar, CreditCard, Settings, Smile, User, Search } from 'lucide-react';
-import { useState, useEffect } from 'react';
 
 export default () => {
   const [open, setOpen] = useState(false);
