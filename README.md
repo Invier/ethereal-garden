@@ -93,5 +93,23 @@ Contributions are welcome! Please follow these steps to contribute:
 
 10. **Review process**: Your pull request will be reviewed by the maintainers. You may be asked to make additional changes before it is merged.
 
+## 🚀 Publishing & Force Methods
+
+This project uses an intelligent GitHub Actions workflow for NPM publishing. Here are the quick force methods:
+
+### Force Publish
+- **🔥 Manual Dispatch**: GitHub Actions → "Run workflow" (bypasses everything)
+- **🏷️ Version Tags**: `git tag v1.2.3 && git push origin v1.2.3`
+- **✅ Keywords**: Add `[publish]` or `[release]` to commit message
+
+### Force Skip
+- **🚫 Keywords**: Add `[skip publish]`, `[no publish]`, `[skip npm]`, `[no release]`, or `[skip release]` to commit message
+
+### Security
+- 🔒 Only PR merges to main trigger auto-publishing (not direct pushes)
+- 📦 Package changes auto-publish, website changes don't
+
+**📖 Full Documentation**: See [`PUBLISH_FORCE_METHODS.md`](./PUBLISH_FORCE_METHODS.md) for complete details and examples.
+
 ## License
 This project is licensed under the MIT License.

@@ -35,8 +35,111 @@ permissions:
   issues: write
 
 jobs:
-  test:
+  check-changes:
     runs-on: ubuntu-latest
+    outputs:
+      package-changed: ${{ steps.changes.outputs.package }}
+      should-publish: ${{ steps.publish-check.outputs.should-publish }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check for package-related changes
+        uses: dorny/paths-filter@v3
+        id: changes
+        with:
+          filters: |
+            package:
+              - 'components/**'
+              - 'internal/**'
+              - 'gulpfile.js'
+              - 'package.json'
+              - 'tsconfig.json'
+              - 'postcss.config.js'
+              - '.github/workflows/publish.yml'
+            website:
+              - 'app/**'
+              - 'content/**'
+              - 'public/**'
+              - 'styles/**'
+              - 'next.config.mjs'
+              - 'netlify.toml'
+
+      - name: Determine if should publish
+        id: publish-check
+        run: |
+          COMMIT_MSG="${{ github.event.head_commit.message }}"
+          
+          # Check for explicit no-publish intent first (highest priority)
+          if [[ "$COMMIT_MSG" =~ \[skip\ publish\]|\[no\ publish\]|\[skip\ npm\]|\[no\ release\]|\[skip\ release\] ]]; then
+            echo "should-publish=false" >> $GITHUB_OUTPUT
+            echo "🚫 Explicit no-publish intent found in commit message"
+            exit 0
+          fi
+          
+          # For main/master branches, only allow merges (not direct pushes)
+          if [[ "${{ github.ref }}" == "refs/heads/main" || "${{ github.ref }}" == "refs/heads/master" ]]; then
+            if [[ "${{ github.event_name }}" == "push" ]]; then
+              # Check if this is a merge commit (has multiple parents)
+              PARENT_COUNT=$(git cat-file -p ${{ github.sha }} | grep "^parent " | wc -l)
+              if [[ $PARENT_COUNT -lt 2 ]]; then
+                echo "should-publish=false" >> $GITHUB_OUTPUT
+                echo "⚠️ Direct push to main detected - only PR merges trigger publishing"
+                exit 0
+              else
+                echo "✅ Merge commit detected on main branch"
+              fi
+            fi
+          fi
+          
+          # Check if this is a manual workflow dispatch with publish enabled
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ github.event.inputs.publish_to_npm }}" == "true" ]]; then
+            echo "should-publish=true" >> $GITHUB_OUTPUT
+            echo "✅ Manual publish requested"
+            exit 0
+          fi
+          
+          # Check if this is a version tag push
+          if [[ "${{ github.ref }}" == refs/tags/v* ]]; then
+            echo "should-publish=true" >> $GITHUB_OUTPUT
+            echo "✅ Version tag detected"
+            exit 0
+          fi
+          
+          # For main/master branch pushes, check for explicit publish intent or package changes
+          if [[ "${{ github.ref }}" == "refs/heads/main" || "${{ github.ref }}" == "refs/heads/master" ]]; then
+            # Check for explicit publish intent in commit message
+            if [[ "$COMMIT_MSG" =~ \[publish\]|\[release\] ]]; then
+              echo "should-publish=true" >> $GITHUB_OUTPUT
+              echo "✅ Explicit publish intent found in commit message"
+              exit 0
+            fi
+            
+            # Check if package-related files changed
+            if [[ "${{ steps.changes.outputs.package }}" == "true" ]]; then
+              echo "should-publish=true" >> $GITHUB_OUTPUT
+              echo "✅ Package-related changes detected"
+              exit 0
+            fi
+            
+            # Skip if only website changes
+            if [[ "${{ steps.changes.outputs.website }}" == "true" && "${{ steps.changes.outputs.package }}" == "false" ]]; then
+              echo "should-publish=false" >> $GITHUB_OUTPUT
+              echo "⏭️ Only website changes detected, skipping package publish"
+              exit 0
+            fi
+          fi
+          
+          # Default to not publishing for other cases
+          echo "should-publish=false" >> $GITHUB_OUTPUT
+          echo "⏭️ No publish conditions met"
+
+  test:
+    needs: check-changes
+    runs-on: ubuntu-latest
+    if: needs.check-changes.outputs.should-publish == 'true'
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -57,11 +160,9 @@ jobs:
         run: npm run publish:dry
 
   publish:
-    needs: test
+    needs: [check-changes, test]
     runs-on: ubuntu-latest
-    if: |
-      (github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/v'))) ||
-      (github.event_name == 'workflow_dispatch' && github.event.inputs.publish_to_npm == 'true')
+    if: needs.check-changes.outputs.should-publish == 'true'
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -173,9 +274,14 @@ jobs:
           echo "📖 Documentation: https://ethereal.garden"
 
   publish-beta:
-    needs: test
+    needs: check-changes
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref != 'refs/heads/main' && github.ref != 'refs/heads/master' && !startsWith(github.ref, 'refs/tags/v')
+    if: |
+      github.event_name == 'push' && 
+      github.ref != 'refs/heads/main' && 
+      github.ref != 'refs/heads/master' && 
+      !startsWith(github.ref, 'refs/tags/v') &&
+      needs.check-changes.outputs.package-changed == 'true'
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -224,4 +330,22 @@ jobs:
               \`\`\`
               
               This beta version includes the changes from this PR and can be used for testing.`
-            }) 
+            })
+
+# Publishing Logic Summary:
+# 
+# 🔒 SECURITY: Only PR merges to main trigger publishing (not direct pushes)
+# 
+# 🚫 Explicit No-Publish Keywords (highest priority):
+# Use these in commit messages to prevent publishing even when package files change:
+# - [skip publish]
+# - [no publish] 
+# - [skip npm]
+# - [no release]
+# - [skip release]
+# 
+# 📋 Examples:
+# - "Fix Button component styling [skip publish]" → WIP, don't publish yet
+# - Direct push to main → Never publishes (security protection)
+# - PR merge to main with component changes → Auto-publishes
+# - "Update docs and fix bug [publish]" → Force publish even with mixed changes
