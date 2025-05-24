@@ -76,7 +76,4 @@
 
 # Plugin for Next.js runtime
 [[plugins]]
-  package = "@netlify/plugin-nextjs"
-
-[plugins.inputs]
-  target = "experimental-edge" 
+  package = "@netlify/plugin-nextjs" 
