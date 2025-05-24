@@ -2,16 +2,14 @@
   "name": "ethereal-ui",
   "description": "Ethereal Garden - A React UI Component Library",
   "version": "0.0.0-pre-alpha.0.0",
-  "private": true,
   "files": [
     "dist",
-    "styles/ethereal.scss",
-    "ethereal.tailwind.config.js"
+    "styles/ethereal.css"
   ],
   "license": "MIT",
   "homepage": "https://ethereal.garden",
-  "module": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "module": "dist/esm/index.js",
+  "typings": "dist/esm/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/invier/ethereal-garden.git",
@@ -29,7 +27,7 @@
     "lint:fix": "next lint --fix",
     "build:compile": "gulp compile",
     "build:package": "shx rm -rf dist && npm run build:compile",
-    "publish:dry": "npm run build:package && npm publish --dry-run"
+    "publish:dry": "npm publish --dry-run"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
@@ -76,6 +74,9 @@
     "vaul": "^1.1.2"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.27.2",
+    "@babel/preset-react": "^7.27.1",
+    "@babel/preset-typescript": "^7.27.1",
     "@mdx-js/react": "3.1.0",
     "@shikijs/transformers": "3.4.2",
     "@tailwindcss/postcss": "^4.1.7",
