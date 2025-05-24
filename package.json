@@ -106,6 +106,7 @@
     "hast-util-to-jsx-runtime": "2.3.6",
     "merge2": "1.4.1",
     "mini-css-extract-plugin": "2.9.2",
+    "motion": "^12.12.2",
     "next": "15.3.2",
     "postcss": "8.5.3",
     "react-docgen": "8.0.0",

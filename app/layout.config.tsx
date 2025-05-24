@@ -9,7 +9,8 @@ import { type HomeLayoutProps } from 'fumadocs-ui/layouts/home';
  */
 export const baseOptions: HomeLayoutProps = {
   nav: {
-    title: 'My App',
+    title: 'Ethereal Garden',
+
   },
   links: [
     {
@@ -18,4 +19,5 @@ export const baseOptions: HomeLayoutProps = {
       active: 'nested-url',
     },
   ],
+  githubUrl: 'https://github.com/Invier/ethereal-garden',
 };

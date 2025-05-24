@@ -29,10 +29,10 @@ const MyComponent = () => (
       <TabsTrigger value="code">Code</TabsTrigger>
     </TabsList>
     <TabsContent value="preview">
-      <div>Preview Content</div>
+      Preview Content
     </TabsContent>
     <TabsContent value="code">
-      <div>Code Content</div>
+      Code Content
     </TabsContent>
   </Tabs>
 );
@@ -44,22 +44,11 @@ export default MyComponent;
 To include the styles, import the `ethereal-ui/styles/ethereal.scss` file in your main styles file or App.ts:
 ```scss
 // In your main styles file (e.g., styles.scss)
-@import '~ethereal-ui/styles/ethereal.scss';
+@import '~ethereal-ui/styles/ethereal.css';
 ```
 Or in App.ts:
 ```jsx
-import '~ethereal-ui/styles/ethereal.scss';
-```
-
-## Tailwind CSS Integration
-
-If you are using Tailwind CSS, import `ethereal.tailwind.config.js` into your Tailwind configuration presets:
-
-```js
-module.exports = {
-  presets: [require('ethereal-ui/ethereal.tailwind.config.js')],
-  // other configurations
-};
+import '~ethereal-ui/styles/ethereal.css';
 ```
 
 ## Development
