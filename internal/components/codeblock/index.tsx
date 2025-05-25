@@ -7,7 +7,6 @@ import { codeToHast } from 'shiki';
 export default async function CodeBlock(props: any) {
   const {
     code,
-    getText,
     lang = 'tsx',
   } = props ?? {};
   
