@@ -15,7 +15,7 @@ import {
 
 export default () => (
   <AlertDialog>
-    <AlertDialogTrigger asChild>
+    <AlertDialogTrigger>
       <Button variant="outline" className="border-amber-500 text-amber-600 hover:bg-amber-50">
         <AlertTriangle className="mr-2 h-4 w-4 text-amber-500" />
         Update Required

@@ -6,7 +6,7 @@ import {
 } from 'ethereal-ui';
 
 export default () => (
-  <Accordion type="multiple" className="w-full">
+  <Accordion className="w-full">
     <AccordionItem value="item-1">
       <AccordionTrigger>What is Ethereal UI?</AccordionTrigger>
       <AccordionContent>

@@ -1,4 +1,3 @@
-import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 import { Loader2 } from "lucide-react"
 import * as React from "react"
@@ -42,40 +41,60 @@ export enum ButtonIconPosition {
   NONE = "none",
 }
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof buttonVariants> & {
   asChild?: boolean;
   icon?: React.ReactNode;
   iconPos?: ButtonIconPosition;
   loading?: boolean;
+  ref?: React.RefObject<HTMLButtonElement | HTMLDivElement>;
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, icon, iconPos = ButtonIconPosition.LEFT, loading = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button"
+const Button = (
+  {
+    className,
+    variant,
+    size,
+    asChild = false,
+    icon,
+    iconPos = ButtonIconPosition.LEFT,
+    loading = false,
+    disabled,
+    ref,
+    ...props
+  }: ButtonProps
+) => {
+  const buttonCx = cn(buttonVariants({ variant, size }), "flex gap-2 items-center justify-center", className);
 
-    const buttonCx = cn(buttonVariants({ variant, size }), "flex gap-2 items-center justify-center", className);
+  const isIconLeft = iconPos === ButtonIconPosition.LEFT;
+  const isIconRight = iconPos === ButtonIconPosition.RIGHT;
 
-    const isIconLeft = iconPos === ButtonIconPosition.LEFT;
-    const isIconRight = iconPos === ButtonIconPosition.RIGHT;
+  const renderIcon = loading ? <Loader2 className="animate-spin h-6 w-6" /> : icon;
 
-    const renderIcon = loading ? <Loader2 className="animate-spin h-6 w-6" /> : icon
-
+  if (asChild) {
     return (
-      <Comp
+      <div
+        ref={ref as React.RefObject<HTMLDivElement>}
         className={buttonCx}
-        ref={ref}
-        disabled={loading}
-        {...props}
+        {...props as React.HTMLAttributes<HTMLDivElement>}
       >
-        {isIconLeft && icon && renderIcon}
         {props.children}
-        {isIconRight && icon && renderIcon}
-      </Comp>
-    )
+      </div>
+    );
   }
-)
+
+  return (
+    <button
+      ref={ref as React.RefObject<HTMLButtonElement>}
+      className={buttonCx}
+      disabled={disabled || loading}
+      {...props}
+    >
+      {isIconLeft && icon && renderIcon}
+      {props.children}
+      {isIconRight && icon && renderIcon}
+    </button>
+  );
+};
 Button.displayName = "Button"
 
 export { Button, buttonVariants }

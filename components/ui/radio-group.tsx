@@ -1,31 +1,41 @@
 "use client"
 
-import * as RadioGroupPrimitive from "@radix-ui/react-radio-group"
+import { RadioGroup as BaseRadioGroup, Radio as BaseRadio } from "@base-ui-components/react"
 import { Circle } from "lucide-react"
 import * as React from "react"
 
 import { cn } from "../utils"
 
-const RadioGroup = React.forwardRef<
-  React.ElementRef<typeof RadioGroupPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root>
->(({ className, ...props }, ref) => {
+const RadioGroup = (
+  {
+    ref,
+    className,
+    ...props
+  }: React.ComponentPropsWithRef<typeof BaseRadioGroup> & {
+    ref?: React.RefObject<React.ElementRef<typeof BaseRadioGroup>>;
+  }
+) => {
   return (
-    <RadioGroupPrimitive.Root
+    <BaseRadioGroup
       className={cn("grid gap-2", className)}
       {...props}
       ref={ref}
     />
   )
-})
-RadioGroup.displayName = RadioGroupPrimitive.Root.displayName
+}
+RadioGroup.displayName = "RadioGroup"
 
-const RadioGroupItem = React.forwardRef<
-  React.ElementRef<typeof RadioGroupPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item>
->(({ className, ...props }, ref) => {
+const RadioGroupItem = (
+  {
+    ref,
+    className,
+    ...props
+  }: React.ComponentPropsWithRef<typeof BaseRadio.Root> & {
+    ref?: React.RefObject<React.ElementRef<typeof BaseRadio.Root>>;
+  }
+) => {
   return (
-    <RadioGroupPrimitive.Item
+    <BaseRadio.Root
       ref={ref}
       className={cn(
         "aspect-square h-4 w-4 rounded-full border border-primary text-primary shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
@@ -33,12 +43,12 @@ const RadioGroupItem = React.forwardRef<
       )}
       {...props}
     >
-      <RadioGroupPrimitive.Indicator className="flex items-center justify-center">
+      <BaseRadio.Indicator className="flex items-center justify-center">
         <Circle className="h-3.5 w-3.5 fill-primary" />
-      </RadioGroupPrimitive.Indicator>
-    </RadioGroupPrimitive.Item>
+      </BaseRadio.Indicator>
+    </BaseRadio.Root>
   )
-})
-RadioGroupItem.displayName = RadioGroupPrimitive.Item.displayName
+}
+RadioGroupItem.displayName = "RadioGroupItem"
 
 export { RadioGroup, RadioGroupItem }

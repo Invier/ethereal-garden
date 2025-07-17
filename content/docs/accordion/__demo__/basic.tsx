@@ -6,7 +6,7 @@ import {
 } from 'ethereal-ui';
 
 export default () => (
-  <Accordion type="single" collapsible className="w-full">
+  <Accordion className="w-full">
     <AccordionItem value="item-1">
       <AccordionTrigger>Is it accessible?</AccordionTrigger>
       <AccordionContent>

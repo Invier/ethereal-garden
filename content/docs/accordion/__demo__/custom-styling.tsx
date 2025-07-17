@@ -7,8 +7,6 @@ import {
 
 export default () => (
   <Accordion 
-    type="single" 
-    collapsible 
     className="w-full rounded-md border p-4"
   >
     <AccordionItem value="item-1" className="border-b-0">

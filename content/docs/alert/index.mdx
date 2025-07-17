@@ -2,6 +2,16 @@
 title: Alert
 description: Displays a callout for user attention.
 ---
+<Links links={[
+  {
+    title: "Docs",
+    url: "https://base-ui.com/react/components/alert-dialog"
+  },
+  {
+    title: "API Reference",
+    url: "https://base-ui.com/react/components/alert-dialog#api-reference"
+  }
+]} />
 
 ### When To Use
 
@@ -13,7 +23,19 @@ Use alerts to highlight important information that requires the user's attention
 - Drawing attention to critical information
 - Providing contextual help or guidance
 
+Use alert dialogs to interrupt the user flow with a message that requires their attention and acknowledgment. They're useful for:
+
+- Confirming destructive actions (like deleting data)
+- Requiring explicit user confirmation
+- Warning users about consequences of an action
+- Presenting critical information that needs acknowledgment
+- Requiring a choice before proceeding
+
+Unlike regular dialogs, alert dialogs are more disruptive and should be used sparingly for truly important interactions.
+
 ### Examples
+
+#### Alert
 <Preview
   lang="jsx"
   file="/alert/__demo__/basic"
@@ -30,6 +52,25 @@ Use alerts to highlight important information that requires the user's attention
   lang="jsx"
   file="/alert/__demo__/with-icon"
   title="With Icon"
+/>
+
+#### Alert Dialog
+<Preview
+  lang="jsx"
+  file="/alert/__demo__/dialog-alert"
+  title="Basic"
+/>
+
+<Preview
+  lang="jsx"
+  file="/alert/__demo__/destructive-action"
+  title="Destructive Action"
+/>
+
+<Preview
+  lang="jsx"
+  file="/alert/__demo__/custom-buttons"
+  title="Custom Buttons"
 />
 
 ### Props
