@@ -65,6 +65,14 @@ const SidebarProvider = (
     style,
     children,
     ...props
+  }: React.ComponentProps<"div"> & {
+    ref?: React.RefObject<HTMLDivElement>;
+    defaultOpen?: boolean;
+    open?: boolean;
+    onOpenChange?: (open: boolean) => void;
+    className?: string;
+    style?: React.CSSProperties;
+    children?: React.ReactNode;
   }
 ) => {
   const isMobile = useIsMobile()
@@ -131,7 +139,7 @@ const SidebarProvider = (
 
   return (
     <SidebarContext.Provider value={contextValue}>
-      <TooltipProvider delayDuration={0}>
+      <TooltipProvider>
         <div
           style={
             {
@@ -164,6 +172,13 @@ const Sidebar = (
     className,
     children,
     ...props
+  }: React.ComponentProps<"div"> & {
+    ref?: React.RefObject<HTMLDivElement>;
+    side?: "left" | "right";
+    variant?: "sidebar" | "floating" | "inset";
+    collapsible?: "offcanvas" | "icon" | "none";
+    className?: string;
+    children?: React.ReactNode;
   }
 ) => {
   const { isMobile, state, openMobile, setOpenMobile } = useSidebar()
@@ -604,7 +619,7 @@ const SidebarMenuButton = (
     isActive?: boolean;
     variant?: VariantProps<typeof sidebarMenuButtonVariants>["variant"];
     size?: VariantProps<typeof sidebarMenuButtonVariants>["size"];
-    tooltip?: React.ReactNode;
+    tooltip?: React.ReactNode | string | { children: React.ReactNode };
     className?: string;
   }
 ) => {
@@ -634,7 +649,7 @@ const SidebarMenuButton = (
 
   if (typeof tooltip === "string") {
     tooltip = {
-      children: tooltip,
+      children: tooltip as React.ReactNode,
     }
   }
 
@@ -642,10 +657,7 @@ const SidebarMenuButton = (
     <Tooltip>
       <TooltipTrigger>{button}</TooltipTrigger>
       <TooltipContent
-        side="right"
-        align="center"
-        hidden={state !== "collapsed" || isMobile}
-        {...tooltip}
+        {...(tooltip as React.ComponentProps<typeof TooltipContent>)}
       />
     </Tooltip>
   )
@@ -660,6 +672,8 @@ const SidebarMenuAction = (
     ...props
   }: React.ComponentProps<"button"> & {
     ref?: React.RefObject<HTMLButtonElement>;
+    className?: string;
+    showOnHover?: boolean;
   }
 ) => {
   return (
@@ -714,6 +728,10 @@ const SidebarMenuSkeleton = (
     className,
     showIcon = false,
     ...props
+  }: React.ComponentProps<"div"> & {
+    ref?: React.RefObject<HTMLDivElement>;
+    showIcon?: boolean;
+    className?: string;
   }
 ) => {
   // Random width between 50 to 90%.
@@ -785,6 +803,11 @@ const SidebarMenuSubButton = (
     isActive,
     className,
     ...props
+  }: React.ComponentProps<"a"> & {
+    ref?: React.RefObject<HTMLAnchorElement>;
+    size?: "sm" | "md";
+    isActive?: boolean;
+    className?: string;
   }
 ) => {
   return (
