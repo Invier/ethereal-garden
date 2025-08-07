@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="public/logo.png" alt="Ethereal UI Logo" width="150" height="150">
+  <img src="public/logo.png" alt="Ethereal UI Logo" width="150" height="150"/>
 </div>
 
 <h1 align="center">Ethereal UI</h1>
@@ -8,22 +8,22 @@
   Ethereal Garden - A React UI Component Library
 </div>
 
-<br>
+<br/>
 
 <div align="center">
   <a href="https://www.npmjs.com/package/ethereal-ui">
-    <img src="https://img.shields.io/npm/v/ethereal-ui.svg?style=for-the-badge&label=VERSION" alt="NPM Version">
+    <img src="https://img.shields.io/npm/v/ethereal-ui.svg?style=for-the-badge&label=VERSION" alt="NPM Version"/>
   </a>
   <a href="https://www.npmjs.com/package/ethereal-ui">
-    <img src="https://img.shields.io/npm/dm/ethereal-ui.svg?style=for-the-badge" alt="NPM Downloads">
+    <img src="https://img.shields.io/npm/dm/ethereal-ui.svg?style=for-the-badge" alt="NPM Downloads"/>
   </a>
   <a href="https://github.com/Invier/ethereal-garden/graphs/contributors">
-    <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/invier/ethereal-garden?style=for-the-badge">
+    <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/invier/ethereal-garden?style=for-the-badge"/>
   </a>
   <a href="https://github.com/Invier/ethereal-garden/actions">
-    <img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/invier/ethereal-garden/publish.yml?style=for-the-badge&label=NPM%20BUILD">
+    <img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/invier/ethereal-garden/publish.yml?style=for-the-badge&label=NPM%20BUILD"/>
   </a>
-  <img alt="Netlify" src="https://img.shields.io/netlify/9a0bb099-bcd9-4154-9246-6ea61c516d26?style=for-the-badge&label=WEBSITE%20BUILD">
+  <img alt="Netlify" src="https://img.shields.io/netlify/9a0bb099-bcd9-4154-9246-6ea61c516d26?style=for-the-badge&label=WEBSITE%20BUILD"/>
 </div>
 
 ---
@@ -76,15 +76,9 @@ export default MyComponent;
 
 To include the styles, import the `ethereal-ui/styles/ethereal.css` file in your main styles file or App.ts:
 
-```scss
-// In your main styles file (e.g., styles.scss)
-@import '~ethereal-ui/styles/ethereal.css';
-```
-
-Or in App.ts:
-
-```jsx
-import '~ethereal-ui/styles/ethereal.css';
+```css
+@import 'ethereal-ui/styles/ethereal.css';
+@source '../node_modules/ethereal-ui';
 ```
 
 ---

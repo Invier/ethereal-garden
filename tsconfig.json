@@ -16,7 +16,7 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "ethereal-ui": ["./components/index.tsx"],
+      "ethereal-ui": ["components/index.ts"],
       "ethereal-ui/*": ["./components/*"],
       "@/*": ["./*"],
     },
