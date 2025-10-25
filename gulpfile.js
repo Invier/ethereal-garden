@@ -173,7 +173,6 @@ function buildESModule() {
       target: 'es6',
       jsx: 'preserve',
       moduleResolution: 'node',
-      allowImportingTsExtensions: true,
       declaration: true,
       allowSyntheticDefaultImports: true,
       strict: false,
