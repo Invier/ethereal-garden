@@ -9,6 +9,29 @@ const through2 = require('through2');
 const webpack = require('webpack');
 const webpackStream = require('webpack-stream');
 
+function addJsExtensions() {
+  return through2.obj(function (file, _, next) {
+    const filePath = file.path;
+    
+    if (filePath.endsWith('.js') && (filePath.includes('dist/esm') || filePath.includes('esm') || filePath.includes('components'))) {
+      let content = file.contents.toString();
+      
+      // Match export * from './path' patterns and add .js extensions
+      content = content.replace(/export \* from ['"]\.\/([^'"]+)['"]/g, (match, path) => {
+        // Only add .js if it doesn't already have an extension
+        if (!path.includes('.')) {
+          return match.replace(path, path + '.js');
+        }
+        return match;
+      });
+      
+      file.contents = Buffer.from(content);
+    }
+    this.push(file);
+    next();
+  });
+}
+
 const pkg = require('./package.json');
 
 
@@ -17,8 +40,7 @@ function insertUseClient() {
   return through2.obj(function (file, _, next) {
     const { path: filepath } = file;
     if (
-      /\.(j|t)sx$/.test(filepath) ||
-      /components(\/[\w-]+)?\/index\.ts$/.test(filepath)
+      /components\/index\.(ts|tsx)$/.test(filepath)
     ) {
       file.contents = Buffer.concat([Buffer.from(header), file.contents]);
     }
@@ -171,7 +193,7 @@ function buildESModule() {
       noUnusedLocals: false,
       strictNullChecks: false,
       target: 'es6',
-      jsx: 'preserve',
+      jsx: 'react-jsx',
       moduleResolution: 'node',
       declaration: true,
       allowSyntheticDefaultImports: true,
@@ -197,7 +219,7 @@ function buildESModule() {
       console.error('TypeScript dts compilation error:', error);
       this.emit('done');
     })),
-    tsResult.js.pipe(gulp.dest('dist/esm').on('error', function (error) {
+    tsResult.js.pipe(addJsExtensions()).pipe(gulp.dest('dist/esm').on('error', function (error) {
       console.error('TypeScript js compilation error:', error);
       this.emit('done');
     })),

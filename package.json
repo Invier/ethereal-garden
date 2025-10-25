@@ -1,7 +1,7 @@
 {
   "name": "ethereal-ui",
   "description": "Ethereal Garden - A React UI Component Library",
-  "version": "0.0.2",
+  "version": "0.0.8",
   "files": [
     "dist",
     "styles/ethereal.css"
@@ -17,8 +17,11 @@
       "require": "./dist/esm/index.js",
       "types": "./dist/esm/index.d.ts"
     },
-    "./styles": "./styles/ethereal.css"
+    "./styles": "./styles/ethereal.css",
+    "./styles/ethereal.css": "./styles/ethereal.css",
+    "./ethereal.css": "./styles/ethereal.css"
   },
+  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "https://github.com/invier/ethereal-garden.git",
