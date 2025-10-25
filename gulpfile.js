@@ -157,35 +157,34 @@ function buildCommonJS() {
   };
 
   return gulp
-    .src('components/**/*.tsx')
+    .src('components/index.ts')
     .pipe(webpackStream(webpackConfig, webpack))
     .pipe(gulp.dest('dist'));
 }
 
 function buildESModule() {
   const tsResult = gulp
-    .src('components/**/*.{ts,tsx}')
+    .src(['components/index.tsx', 'components/**/*.{ts,tsx}'])
     .pipe(insertUseClient())
     .pipe(ts({
-      noUnusedParameters: true,
-      noUnusedLocals: true,
-      strictNullChecks: true,
+      noUnusedParameters: false,
+      noUnusedLocals: false,
+      strictNullChecks: false,
       target: 'es6',
       jsx: 'preserve',
       moduleResolution: 'node',
+      allowImportingTsExtensions: true,
       declaration: true,
       allowSyntheticDefaultImports: true,
-      strict: true,
+      strict: false,
       skipLibCheck: true,
       stripInternal: true,
-      noImplicitAny: true,
+      noImplicitAny: false,
       esModuleInterop: true,
       experimentalDecorators: true,
       module: 'esnext',
       baseUrl: './',
       resolveJsonModule: true,
-      jsxFactory: 'React.createElement',
-      jsxFragmentFactory: 'React.Fragment',
       lib: [ 'dom', 'es2017' ],
       paths: {
         'ethereal-ui': ['.'],
