@@ -10,6 +10,9 @@ const withMDX = createMDX();
 /** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,
+  images: {
+    domains: ['images.unsplash.com'],
+  },
   webpack: (config, { isServer }) => {
     config.resolve.alias = {
       ...config.resolve.alias,
