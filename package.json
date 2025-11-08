@@ -1,7 +1,7 @@
 {
   "name": "ethereal-ui",
   "description": "Ethereal Garden - A React UI Component Library",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "files": [
     "dist",
     "styles/ethereal.css"
