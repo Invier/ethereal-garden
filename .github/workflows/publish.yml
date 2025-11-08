@@ -227,8 +227,16 @@ jobs:
       - name: Set version from tag
         if: steps.version.outputs.skip_version_bump == 'true'
         run: |
-          npm version ${{ steps.version.outputs.new_version }} --no-git-tag-version
-          echo "NEW_VERSION=${{ steps.version.outputs.new_version }}" >> $GITHUB_ENV
+          CURRENT_VERSION=$(node -p "require('./package.json').version")
+          TAG_VERSION="${{ steps.version.outputs.new_version }}"
+          
+          if [[ "$CURRENT_VERSION" == "$TAG_VERSION" ]]; then
+            echo "✅ Package version ($CURRENT_VERSION) already matches tag version ($TAG_VERSION), skipping version update"
+          else
+            npm version "$TAG_VERSION" --no-git-tag-version
+          fi
+          
+          echo "NEW_VERSION=$TAG_VERSION" >> $GITHUB_ENV
 
       - name: Update package.json version in git
         if: steps.version.outputs.skip_version_bump != 'true'
