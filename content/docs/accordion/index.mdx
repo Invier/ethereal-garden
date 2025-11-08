@@ -4,6 +4,10 @@ description: A vertically stacked set of interactive headings that each reveal a
 tags: ["accordion", "collapsible", "expandable", "toggle"]
 ---
 
+<Links links={[
+  { title: "Radix UI Accordion", url: "https://www.radix-ui.com/primitives/docs/components/accordion" },
+]} />
+
 ### When To Use
 
 Use accordions to vertically stack sections of content that can be expanded or collapsed to reveal more information. They're useful for:
@@ -35,28 +39,28 @@ Use accordions to vertically stack sections of content that can be expanded or c
 ### Props
 #### Accordion
 <AutoTypeTable
-  type={`import { Accordion as BaseAccordion } from "@base-ui-components/react"
-  export type AccordionRoot = Omit<BaseAccordion.Root.Props, keyof React.HTMLAttributes<HTMLDivElement>>`}
+  type={`import { AccordionSingleProps, AccordionMultipleProps } from "@radix-ui/react-accordion"
+  export type AccordionRoot = Omit<AccordionSingleProps | AccordionMultipleProps, keyof React.HTMLAttributes<HTMLDivElement>>`}
   name="AccordionRoot"
 />
 
 #### AccordionItem
 <AutoTypeTable
-  type={`import { Accordion as BaseAccordion } from "@base-ui-components/react"
-  export type AccordionItem = Omit<BaseAccordion.Item.Props, keyof React.HTMLAttributes<HTMLDivElement>>`}
+  type={`import { AccordionItemProps } from "@radix-ui/react-accordion"
+  export type AccordionItem = Omit<AccordionItemProps, keyof React.HTMLAttributes<HTMLDivElement>>`}
   name="AccordionItem"
 />
 
 #### AccordionTrigger
 <AutoTypeTable
-  type={`import { Accordion as BaseAccordion } from "@base-ui-components/react"
-  export type AccordionTrigger = Omit<BaseAccordion.Trigger.Props, keyof React.HTMLAttributes<HTMLButtonElement>>`}
+  type={`import { AccordionTriggerProps } from "@radix-ui/react-accordion"
+  export type AccordionTrigger = Omit<AccordionTriggerProps, keyof React.HTMLAttributes<HTMLButtonElement>>`}
   name="AccordionTrigger"
 />
 
 #### AccordionContent
 <AutoTypeTable
-  type={`import { Accordion as BaseAccordion } from "@base-ui-components/react"
-  export type AccordionContent = Omit<BaseAccordion.Panel.Props, keyof React.HTMLAttributes<HTMLDivElement>>`}
+  type={`import { AccordionContentProps } from "@radix-ui/react-accordion"
+  export type AccordionContent = Omit<AccordionContentProps, keyof React.HTMLAttributes<HTMLDivElement>>`}
   name="AccordionContent"
 />
